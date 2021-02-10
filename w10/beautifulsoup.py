@@ -5,6 +5,15 @@ url = input('Enter - ')
 html = urllib.request.urlopen(url).read()
 soup = BeautifulSoup(html, 'html.parser')
 
-tags = soup('a')
+total = 0
+count = 0
+
+tags = soup.find_all('span')
+
 for tag in tags:
-    print(tag.get('href', None))
+    num = int(tag.string)
+    total = total + num
+    count = count + 1
+
+print(count)
+print(total)
