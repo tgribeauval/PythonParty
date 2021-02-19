@@ -33,7 +33,7 @@ for line in filehandler:
         cursor.execute('INSERT INTO Counts (email, count) VALUES (?, 1)', (email,))
     else:
         #if email is in the database, add +1 to count.
-        cursor.execute('UPDATE Counts SET count = count + 1 WHERE email = ?', (email))
+        cursor.execute('UPDATE Counts SET count = count + 1 WHERE email = ?', (email,))
     #commit is the command to "commit" the changes. Forces to disk, can be slow, avoid committing in loops.
     connection.commit()
 
